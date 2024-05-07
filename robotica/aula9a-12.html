@@ -1,0 +1,72 @@
+<h2 class="tm-pt-30 tm-color-primary tm-post-title">Aula 12 - 17/08/2023</h2>
+<h2 class="tm-pt-30 tm-color-primary tm-post-title">Revisão Parte II</h2>
+<p>
+  Nesta aula vamos continuar com a revisão sobre a linguagem C. Para finalizar,
+  vamos falar dos laços.
+</p>
+<p>
+  Não haverá tarefa para casa. Verifique sua nota, pois as notas de todas as
+  atividades já devem ter sido digitadas.
+</p>
+<p>
+  Para esta aula
+  <a
+    href="https://profdanilo.com.br/robotica/download/2023/9ano/Aula 12  - 9 Ano - Revisão Parte II.pdf"
+    target="_blank"
+    >utilize o material impresso entregue pelo professor</a
+  >.
+</p>
+<p>Na próxima aula, voltaremos nossa atenção à programação de nosso robô.</p>
+
+<h2 class="tm-pt-30 tm-color-primary tm-post-title">
+  RESOLUÇÃO DOS EXERCÍCIOS DA AULA ANTERIOR
+</h2>
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/xato5aCxHqM"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen
+></iframe>
+<pre>
+<font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><font color="#000000">stdio</font><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+
+<font color="#00979c">int</font> <font color="#000000">soma</font><font color="#000000">(</font><font color="#00979c">int</font> <font color="#000000">a</font><font color="#434f54">,</font> <font color="#00979c">int</font> <font color="#000000">b</font><font color="#000000">)</font><font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">return</font> <font color="#000000">a</font><font color="#434f54">+</font><font color="#000000">b</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+<font color="#00979c">int</font> <font color="#000000">diferenca</font><font color="#000000">(</font><font color="#00979c">int</font> <font color="#000000">a</font><font color="#434f54">,</font> <font color="#00979c">int</font> <font color="#000000">b</font><font color="#000000">)</font><font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">return</font> <font color="#000000">a</font> <font color="#434f54">-</font> <font color="#000000">b</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+<font color="#00979c">int</font> <font color="#000000">multiplicacao</font><font color="#000000">(</font><font color="#00979c">int</font> <font color="#000000">a</font><font color="#434f54">,</font> <font color="#00979c">int</font> <font color="#000000">b</font><font color="#000000">)</font><font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">return</font> <font color="#000000">a</font><font color="#434f54">*</font><font color="#000000">b</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+<font color="#00979c">int</font> <font color="#000000">divisao</font><font color="#000000">(</font><font color="#00979c">int</font> <font color="#000000">a</font><font color="#434f54">,</font> <font color="#00979c">int</font> <font color="#000000">b</font><font color="#000000">)</font><font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">return</font> <font color="#000000">a</font><font color="#434f54">&#47;</font><font color="#000000">b</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+<font color="#00979c">int</font> <font color="#000000">resto</font><font color="#000000">(</font><font color="#00979c">int</font> <font color="#000000">a</font><font color="#434f54">,</font> <font color="#00979c">int</font> <font color="#000000">b</font><font color="#000000">)</font><font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">return</font> <font color="#000000">a</font><font color="#434f54">%</font><font color="#000000">b</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+<font color="#00979c">int</font> <font color="#000000">quociente</font><font color="#000000">(</font><font color="#00979c">int</font> <font color="#000000">a</font><font color="#434f54">,</font> <font color="#00979c">int</font> <font color="#000000">b</font><font color="#000000">)</font><font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">return</font> <font color="#000000">(</font><font color="#000000">a</font><font color="#434f54">-</font><font color="#000000">resto</font><font color="#000000">(</font><font color="#000000">a</font><font color="#434f54">,</font> <font color="#000000">b</font><font color="#000000">)</font><font color="#000000">)</font><font color="#434f54">&#47;</font><font color="#000000">b</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+<font color="#00979c">int</font> <font color="#000000">main</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#00979c">int</font> <font color="#000000">valor1</font> <font color="#434f54">=</font> <font color="#000000">7</font><font color="#434f54">,</font> <font color="#000000">valor2</font> <font color="#434f54">=</font> <font color="#000000">3</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">printf</font><font color="#000000">(</font><font color="#005c5f">&#34;A soma é: %d\n&#34;</font><font color="#434f54">,</font> <font color="#000000">soma</font><font color="#000000">(</font><font color="#000000">valor1</font><font color="#434f54">,</font> <font color="#000000">valor2</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">printf</font><font color="#000000">(</font><font color="#005c5f">&#34;A diferênça é: %d\n&#34;</font><font color="#434f54">,</font> <font color="#000000">diferenca</font><font color="#000000">(</font><font color="#000000">valor1</font><font color="#434f54">,</font> <font color="#000000">valor2</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">printf</font><font color="#000000">(</font><font color="#005c5f">&#34;A multiplicação é: %d\n&#34;</font><font color="#434f54">,</font> <font color="#000000">multiplicacao</font><font color="#000000">(</font><font color="#000000">valor1</font><font color="#434f54">,</font> <font color="#000000">valor2</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">printf</font><font color="#000000">(</font><font color="#005c5f">&#34;A divisao é: %d\n&#34;</font><font color="#434f54">,</font> <font color="#000000">divisao</font><font color="#000000">(</font><font color="#000000">valor1</font><font color="#434f54">,</font> <font color="#000000">valor2</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">printf</font><font color="#000000">(</font><font color="#005c5f">&#34;O resto é: %d\n&#34;</font><font color="#434f54">,</font> <font color="#000000">resto</font><font color="#000000">(</font><font color="#000000">valor1</font><font color="#434f54">,</font> <font color="#000000">valor2</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">printf</font><font color="#000000">(</font><font color="#005c5f">&#34;O quociente é: %d&#34;</font><font color="#434f54">,</font> <font color="#000000">quociente</font><font color="#000000">(</font><font color="#000000">valor1</font><font color="#434f54">,</font> <font color="#000000">valor2</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">return</font> <font color="#000000">0</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+</pre>

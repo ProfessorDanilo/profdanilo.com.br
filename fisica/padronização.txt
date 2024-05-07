@@ -1,0 +1,17 @@
+-> todo ano enviar os seguintes arquivos para a pasta correspondente ao ano
+- pasta css
+- pasta download
+- arquivos:
+	1col.html
+	2col.html
+	3col.html
+	index
+	pv.html
+********************
+- manter os seguintes arquivos como únicos e inalterados na página principal
+	index.html
+	antigos.html
+	simulacoes.html
+
+****
+lembrar que alguns links talvez devam ser absolutos

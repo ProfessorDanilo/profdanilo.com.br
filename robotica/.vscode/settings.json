@@ -1,0 +1,13 @@
+{
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.organizeImports": "explicit"
+    },
+    "cSpell.enableFiletypes": [
+        "html"
+    ],
+    "git.ignoreLimitWarning": true,
+    "liveServer.settings.port": 5501
+}

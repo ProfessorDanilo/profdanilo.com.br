@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apps do professor Danilo</title>
+    <style>
+      .button-container {
+        display: relative;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .button {
+        width: 25%;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 10px;
+      }
+
+      .button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="button-container">
+      <button
+        class="button"
+        onclick="window.location.href='/fisica'"
+        title="Página da disciplina de Física"
+      >
+        FÍSICA
+      </button>
+      <button
+        class="button"
+        onclick="window.location.href='/robotica'"
+        title="Página da disciplina de Robótica"
+      >
+        ROBÓTICA
+      </button>
+      <button
+        class="button"
+        onclick="window.location.href='/app'"
+        title="Alguns aplicativos úteis"
+      >
+        APPs
+      </button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<h2 class="tm-pt-30 tm-color-primary tm-post-title">Aula 08 - 18/05/2023</h2>
+<h2 class="tm-pt-30 tm-color-primary tm-post-title">Saída PWM</h2>
+<p>
+  <a
+    href="https://profdanilo.com.br/robotica/download/2023/8ano/Aula 08  - Saída PWM.pdf"
+    target="_blank"
+    >Arquivo com tutorial para a aula de hoje</a
+  >.
+  <p>
+    Vamos simular o circuito antes de irmos para o laboratório. Você pode acessar nossa 
+    <a href="https://www.tinkercad.com/joinclass/IHJPSIIJB" target="_blank"
+      >sala no Thinkercad</a
+    > usando o nick aluno e vermos uma simulação que o professor deixou para usarmos em aula.
+  </p>
+</p>
+<p>Abaixo você encontra o código da aula de hoje.</p>
+<hr />
+<pre>
+<font color="#95a5a6">&#47;*</font>
+<font color="#95a5a6">PWM</font>
+<font color="#95a5a6">controla a luminosidade de um led conforme o valor do potenciômetro</font>
+<font color="#95a5a6">*&#47;</font>
+
+ <font color="#00979c">int</font> <font color="#000000">ledPin</font> <font color="#434f54">=</font> <font color="#000000">3</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; pino do led</font>
+ <font color="#00979c">int</font> <font color="#000000">analogPin</font> <font color="#434f54">=</font> <font color="#000000">0</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; pino para leitura do potenciômetro</font>
+ <font color="#00979c">int</font> <font color="#d35400">val</font> <font color="#434f54">=</font> <font color="#000000">0</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;variável para armazenar o valor lido</font>
+
+ <font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font>
+ <font color="#000000">{</font> 
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">ledPin</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; configura pino como saída</font>
+ <font color="#000000">}</font>
+
+ <font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font>
+ <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">val</font> <font color="#434f54">=</font> <font color="#d35400">analogRead</font><font color="#000000">(</font><font color="#000000">analogPin</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;<font color="#434f54">&#47;&#47; le o valor analógico</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">ledPin</font><font color="#434f54">,</font> <font color="#d35400">val</font> <font color="#434f54">&#47;</font> <font color="#000000">4</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; aciona led com o valor analógico lido</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;dividido por 4 para ajustar ao valor &nbsp;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;máximo que pode ser atribuído a função</font>
+<font color="#000000">}</font>
+
+</pre>
+<hr />
+
+<h2 class="tm-pt-30 tm-color-primary tm-post-title">
+  ATIVIDADE 2 - ENTREGA ATÉ 01/06/2023
+</h2>
+<p>
+  Vimos em aulas passadas que o Arduíno possui uma porta analógica de 10 bits de entrada. Isso quer dizer que o Arduíno lê uma tensão que varia de 0 até 5V e transforma em um número inteiro que vai de 0 até 1023.
+</p>
+<p>
+  Note que 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 = 2<sup>10</sup> = 1024. Ou seja, existem 1024 valores, mas como contamos com o 0, então a faixa de valores possíveis é de 1023. Note então que fazemos 2 <sup>número de bits</sup> - 1 para sabermos o intervalo numérico quando a porta possui um certo "número de bits".
+</p>
+<p>
+  Na aula de hoje vimos a saída PWM. Sabendo que ela possui 8 bits, determine e explique qual a faixa de valores que podemos utilizar para a variável <font color="#000000">valor</font><font color="#000000"></font> na função <font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">saidaAnalogica, valor</font><font color="#000000">)</font><font color="#000000"></font>.
+</p>
+<p>
+  Não precisa de uma resposta muito longa: pode ser objetivo, mas expresse suas contas.
+</p>
