@@ -1,50 +1,44 @@
-<h2 class="tm-pt-30 tm-color-primary tm-post-title">Aula 07 - 04/05/2023</h2>
-<h2 class="tm-pt-30 tm-color-primary tm-post-title">Entrada Analógica</h2>
+<h2 class="tm-pt-30 tm-color-primary tm-post-title">Aula 07 - 10/05/2024</h2>
+<h2 class="tm-pt-30 tm-color-primary tm-post-title">Números Binários</h2>
+
 <p>
-  <a
-    href="https://profdanilo.com.br/robotica/download/2023/8ano/Aula 07  - Entrada Analógica.pdf"
-    target="_blank"
-    >Arquivo com tutorial para a aula de hoje</a
-  >.
-  <p>
-    Você pode também <a href="https://www.tinkercad.com/embed/52aHqSIpaza" target="_blank">acessar uma simulação no Tinkercad</a>.
-  </p>
+  Na aula de hoje veremos o que são números binários e como converter de um
+  número binário para um decimal.
 </p>
-<p>Abaixo você encontra o código da aula de hoje.</p>
-<hr />
-<pre>
-<font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font>
- &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">9600</font><font color="#000000">)</font><font color="#000000">;</font>
-<font color="#000000">}</font>
-
-<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">{</font> &nbsp;
- &nbsp;<font color="#00979c">int</font> <font color="#000000">x</font> <font color="#434f54">=</font> <font color="#000000">0</font><font color="#000000">;</font>
- &nbsp;<font color="#00979c">float</font> <font color="#000000">y</font> <font color="#434f54">=</font> <font color="#000000">0</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">x</font> <font color="#434f54">=</font> <font color="#d35400">analogRead</font><font color="#000000">(</font><font color="#00979c">A0</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">y</font> <font color="#434f54">=</font> <font color="#d35400">map</font><font color="#000000">(</font><font color="#000000">x</font><font color="#434f54">,</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">1023</font><font color="#434f54">,</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">500</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">y</font> <font color="#434f54">=</font> <font color="#000000">y</font> <font color="#434f54">&#47;</font> <font color="#000000">100</font><font color="#000000">;</font>
- &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;O valor de x é: &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">x</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;O valor de y é: &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">y</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;
- &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">500</font><font color="#000000">)</font><font color="#000000">;</font>
-<font color="#000000">}</font>
-
-</pre>
-<hr />
+<p>
+  Vamos seguir o material da
+  <a href="download/2024/8ano/Aula 07 - 8 Ano - Binários.pdf" target="_blank"
+    >aula 7</a
+  >
+  para aprendermos sobre números binários e entendermos qual será o circuito do
+  dia.
+</p>
 
 <h2 class="tm-pt-30 tm-color-primary tm-post-title">
-  ATIVIDADE 1 - ENTREGA ATÉ 18/05/2023
+  ATIVIDADE 1 - ENTREGA ATÉ 17/05/2024
 </h2>
 <p>
-  A atividade 1 consiste em você pesquisar sobre tabela verdade e entregar a tabela preenchida. Você encontra a tabela no <a
-    href="https://profdanilo.com.br/robotica/download/2023/8ano/Aula 07  - Entrada Analógica.pdf"
+  A
+  <a
+    href="download/2024/8ano/Aula 07 - 8 Ano - 2 tri Atividade 1.pdf"
     target="_blank"
-    >material utilizado em aula</a
-  >.
+    >atividade 1</a
+  >
+  é baseada no que aprendemos na aula de hoje. Se você faltou, recomendo que
+  assista ao vídeo abaixo:
 </p>
+<iframe
+  width="420"
+  height="236"
+  src="https://www.youtube.com/embed/zToihF2FE9I?si=PdSUKccMR-BMJObj"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
 <p>
-  Copie a tabela em uma folha e a preencha corretamente.
+  Não se esqueça de colocar o nome, faça a caneta ou lápis evitando, mas evite
+  caneta vermelha e, caso não tenha a folha impressa, você pode responder em uma
+  folha avulsa sem necessidade de (re)imprimir o material.
 </p>
