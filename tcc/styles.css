@@ -1,0 +1,10 @@
+.options {
+  display: inline-block;
+  font-size: 12pt;
+  width: 240px;
+  padding-left: 100px;
+}
+
+.container {
+  text-align: center; /* Centraliza as divs na horizontal */
+}
