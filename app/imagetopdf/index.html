@@ -1,16 +1,60 @@
+<?php
+
+require 'vendor/autoload.php'; // Carrega o autoloader do Composer
+
+use Spatie\PdfToImage\Pdf;
+
+// Verifica se o formulário foi enviado e se um arquivo foi enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
+    $file = $_FILES["file"];
+
+    // Verifica se o arquivo enviado é um PDF
+    $fileType = strtolower(pathinfo($file["name"], PATHINFO_EXTENSION));
+    if ($fileType != "pdf") {
+        echo "Por favor, envie um arquivo PDF.";
+        exit();
+    }
+
+    // Define o caminho para salvar o PDF
+    $pdfPath = "uploads/" . basename($file["name"]);
+
+    // Move o arquivo PDF para a pasta de upload
+    if (!move_uploaded_file($file["tmp_name"], $pdfPath)) {
+        echo "Erro ao fazer o upload do arquivo.";
+        exit();
+    }
+
+    // Cria uma instância do objeto PdfToImage e carrega o arquivo PDF
+    $pdf = new Pdf($pdfPath);
+
+    // Converte o PDF em uma imagem PNG e salva
+    $pngPath = "uploads/" . pathinfo($pdfPath, PATHINFO_FILENAME) . ".png";
+    $pdf->saveImage($pngPath);
+
+    // Define o cabeçalho para indicar que é um arquivo PNG para download
+    header('Content-Type: application/octet-stream');
+    header('Content-Disposition: attachment; filename="' . basename($pngPath) . '"');
+    readfile($pngPath);
+
+    // Remove os arquivos temporários
+    unlink($pdfPath);
+    unlink($pngPath);
+    exit();
+}
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conversor de Imagem para PDF</title>
+    <title>Conversor de PDF para PNG</title>
 </head>
 <body>
-    <h1>Conversor de Imagem para PDF</h1>
-    <form action="converter.php" method="post" enctype="multipart/form-data">
-        Selecione uma imagem:
-        <input type="file" name="imagem" id="imagem">
-        <input type="submit" value="Converter">
+    <h1>Conversor de PDF para PNG</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".pdf">
+        <button type="submit">Converter</button>
     </form>
 </body>
 </html>
