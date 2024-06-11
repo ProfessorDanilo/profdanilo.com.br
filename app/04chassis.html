@@ -13,7 +13,6 @@
 
         // Mapear letras e números para os anos correspondentes
         var yearMapping = {
-          0: 2000,
           1: 2001,
           2: 2002,
           3: 2003,
@@ -53,9 +52,10 @@
           year =
             'Entrada inválida. Digite um número entre 0-9 ou uma letra válida (A-Y, exceto I, O, Q, U, Z).';
         }
-
+        ano_possivel_A = year - 30;
+        ano_possivel_B = year;
         document.getElementById('result').innerText =
-          'O ano do carro é: ' + year;
+          'O ano do carro é: ' + ano_possivel_A + ' ou ' + ano_possivel_B + '.';
       }
     </script>
   </head>
