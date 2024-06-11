@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecionar para WhatsApp</title>
+    <script>
+      function redirectToWhatsApp() {
+        var number = document.getElementById('phoneNumber').value;
+        // Remove any non-numeric characters
+        number = number.replace(/\D/g, '');
+        var url = 'https://wa.me/' + number;
+        window.location.href = url;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Redirecionar para WhatsApp</h1>
+    <form onsubmit="redirectToWhatsApp(); return false;">
+      <label for="phoneNumber">Digite o número de telefone:</label>
+      <input type="text" id="phoneNumber" name="phoneNumber" required />
+      <button type="submit">Enviar</button>
+    </form>
+  </body>
+</html>
