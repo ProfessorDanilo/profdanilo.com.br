@@ -48,14 +48,18 @@
         // Verificar se o dígito do chassi está no mapeamento
         if (yearMapping[chassiDigit] !== undefined) {
           year = yearMapping[chassiDigit];
+          ano_possivel_A = year - 30;
+          ano_possivel_B = year;
+          document.getElementById('result').innerText =
+            'O ano do carro é: ' +
+            ano_possivel_A +
+            ' ou ' +
+            ano_possivel_B +
+            '.';
         } else {
-          year =
-            'Entrada inválida. Digite um número entre 0-9 ou uma letra válida (A-Y, exceto I, O, Q, U, Z).';
+          document.getElementById('result').innerText =
+            'Entrada inválida. Digite um número entre 1-9 ou uma letra válida (A-Y, exceto I, O, Q, U, Z).';
         }
-        ano_possivel_A = year - 30;
-        ano_possivel_B = year;
-        document.getElementById('result').innerText =
-          'O ano do carro é: ' + ano_possivel_A + ' ou ' + ano_possivel_B + '.';
       }
     </script>
   </head>
