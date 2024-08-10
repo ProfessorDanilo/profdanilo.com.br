@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escolha uma alternativa</title>
     <link rel="stylesheet" href="style.css"></link>
+    <link rel="icon" type="image/png" href="icon.png" />
 </head>
 <body>
     <h1>Escolha uma opção</h1>
@@ -22,6 +23,8 @@
     <div>
         <a href="QR-code.png"> <button>QR-Code</button> </a>
     </div>
+    <br>
+    <br>    
     <div>
         <a href="results.php"> <button>RESULTADOS</button> </a>
     </div>
