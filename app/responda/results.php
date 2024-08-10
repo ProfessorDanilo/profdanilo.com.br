@@ -13,6 +13,7 @@
     <br>
     <button onclick="clearData()">Limpar</button>
     <button onclick="location.reload()">Atualizar</button>
+    <br>
     <div>
         <a href="index.php"> <button>ALTERNATIVAS</button> </a>
     </div>
