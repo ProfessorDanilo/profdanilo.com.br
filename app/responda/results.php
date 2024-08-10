@@ -12,6 +12,9 @@
     <br>
     <button onclick="clearData()">Limpar</button>
     <button onclick="location.reload()">Atualizar</button>
+    <div>
+        <a href="index.php"> <button>RESULTADOS</button> </a>
+    </div>
 
     <script src="script.js"></script>
 </body>
