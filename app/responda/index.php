@@ -20,10 +20,10 @@
     <div id="retry" style="display:none;">
         <button onclick="retry()">Enviar novamente</button>
     </div>
+    <br>
     <div>
         <a href="QR-code.png"> <button>QR-Code</button> </a>
     </div>
-    <br>
     <br>    
     <div>
         <a href="results.php"> <button>RESULTADOS</button> </a>
