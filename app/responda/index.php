@@ -10,10 +10,10 @@
     <h1>Escolha uma opção</h1>
     <div>
         <button onclick="submitVote('A')" class="btn">A</button>
-        <button onclick="submitVote('B')">B</button>
-        <button onclick="submitVote('C')">C</button>
-        <button onclick="submitVote('D')">D</button>
-        <button onclick="submitVote('E')">E</button>
+        <button onclick="submitVote('B')" class="btn">B</button>
+        <button onclick="submitVote('C')" class="btn">C</button>
+        <button onclick="submitVote('D')" class="btn">D</button>
+        <button onclick="submitVote('E')" class="btn">E</button>
     </div>
     <p id="message"></p>
     <div id="retry" style="display:none;">

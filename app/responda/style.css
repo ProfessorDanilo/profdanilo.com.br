@@ -15,7 +15,7 @@
   margin: 50px;
   padding: 50px;
   text-align: center;
-  background-color: #4262cc;
+  background-color: #5dbdca;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -23,5 +23,5 @@
 }
 
 .btn:hover {
-  background-color: #4ca4af;
+  background-color: #2359bd;
 }
