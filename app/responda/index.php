@@ -20,7 +20,7 @@
         <button onclick="retry()">Enviar novamente</button>
     </div>
     <div>
-          <a href="results.html"> <button>RESULTADOS</button> </a>
+          <a href="results.php"> <button>RESULTADOS</button> </a>
         </div>
     <script src="script.js"></script>
 </body>
