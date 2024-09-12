@@ -1,181 +1,85 @@
-<h2 class="tm-pt-30 tm-color-primary tm-post-title">Aula 14 - 21/09/2023</h2>
-<h2 class="tm-pt-30 tm-color-primary tm-post-title">Criando um sensor de ré</h2>
+<h2 class="tm-pt-30 tm-color-primary tm-post-title">Aula 14 - 13/09/2024</h2>
+<h2 class="tm-pt-30 tm-color-primary tm-post-title">Ponte H</h2>
+
 <p>
-  Para esta aula, você pode usar o material das aulas anteriores para entender
-  melhor o que está acontecendo. Caso queira, consulte conteúdos nas duas aulas
-  anteriores.
+  Na aula de hoje veremos como montar um circuito para controlar um motor de
+  corrente contínua que será usado para controlar os motores de um robô seguidor
+  de linha.
 </p>
 <p>
-  Para a aula de hoje, vamos montar o código impresso e entregue pelo professor.
-</p>
-<p>
-  Quanto ao programa, você pode copiar abaixo ou copiar
+  Vamos estudar o material sobre
   <a
-    href="https://github.com/ProfessorDanilo/2023/blob/main/21-ultrasonico.ino/21-ultrasonico.ino.ino"
+    href="download/2024/8ano/Aula 14 - 8 Ano - Controlando motor CC com ponte H  L293D.pdf"
     target="_blank"
-    >o código do sensor de ré diretamente no site do GitHub</a
-  >.
+    >a ponte H</a
+  >
+  para entendermos como será o circuito em aulas futuras.
 </p>
-<br />
-<pre>
-<font color="#434f54">&#47;&#47;sensor, buzzer e led incorporado</font>
-<font color="#00979c">int</font> <font color="#000000">echo</font> <font color="#434f54">=</font> <font color="#000000">2</font><font color="#434f54">,</font> <font color="#000000">trigger</font> <font color="#434f54">=</font> <font color="#000000">3</font><font color="#434f54">,</font> <font color="#000000">buzzer</font> <font color="#434f54">=</font> <font color="#000000">12</font><font color="#434f54">,</font> <font color="#000000">buildInPin</font> <font color="#434f54">=</font> <font color="#000000">13</font><font color="#000000">;</font>
+<p>
+  Acesse também
+  <a
+    href="https://www.arduinoecia.com.br/controle-de-motor-dc-com-o-l293d-ponte-h/"
+    target="_blank"
+    >um material extra sobre a ponte H</a
+  >
+  e também o
+  <a href="download/2024/8ano/L293D.PDF" target="_blank"
+    >datasheet da ponte H</a
+  >
+  que será usada na próxima aula.
+</p>
 
-<font color="#434f54">&#47;&#47;portas dos leds</font>
-<font color="#00979c">int</font> <font color="#000000">led1</font> <font color="#434f54">=</font> <font color="#000000">8</font><font color="#434f54">,</font> <font color="#000000">led2</font> <font color="#434f54">=</font> <font color="#000000">9</font><font color="#434f54">,</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">led3</font> <font color="#434f54">=</font> <font color="#000000">10</font><font color="#434f54">,</font> <font color="#000000">led4</font> <font color="#434f54">=</font> <font color="#000000">11</font><font color="#000000">;</font>
-
-<font color="#434f54">&#47;&#47;variável para salvar o tempo</font>
-<font color="#00979c">long</font> <font color="#000000">tempo</font><font color="#000000">;</font>
-
-<font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
- &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">echo</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">trigger</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">buildInPin</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">9600</font><font color="#000000">)</font><font color="#000000">;</font>
-<font color="#000000">}</font>
-<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
- &nbsp;<font color="#434f54">&#47;&#47;enviando o pulso TTL</font>
- &nbsp;<font color="#434f54">&#47;&#47;vamos forçar o desligamento do trigger</font>
- &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">trigger</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#434f54">&#47;&#47;aqui usamos uma nova função para esperar microssegundos</font>
- &nbsp;<font color="#d35400">delayMicroseconds</font><font color="#000000">(</font><font color="#000000">2</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#434f54">&#47;&#47;inicialndo o pulso TTL</font>
- &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">trigger</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#434f54">&#47;&#47;aguardando 10 milissegundos</font>
- &nbsp;<font color="#d35400">delayMicroseconds</font><font color="#000000">(</font><font color="#000000">10</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#434f54">&#47;&#47;finalizando o pulso TTL</font>
- &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">trigger</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#434f54">&#47;&#47;nova função: para medir o pulso</font>
- &nbsp;<font color="#434f54">&#47;&#47;TTL enviada pelo módulo</font>
- &nbsp;<font color="#000000">tempo</font> <font color="#434f54">=</font> <font color="#d35400">pulseIn</font><font color="#000000">(</font><font color="#000000">echo</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#434f54">&#47;&#47;Note que temos que informar a porta</font>
- &nbsp;<font color="#434f54">&#47;&#47;e se o sinal lido é alto ou baixo</font>
- &nbsp;<font color="#434f54">&#47;&#47;vamos exibir isso no serial monitor</font>
- &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;O tempo de medida do eco é de &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">tempo</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34; microssegundos&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#434f54">&#47;&#47;pulando linhas e esperando</font>
- &nbsp;<font color="#434f54">&#47;&#47;1 segundo para fazer outra medida</font>
- &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">tempo</font> <font color="#434f54">&lt;</font> <font color="#000000">250</font><font color="#000000">)</font> <font color="#000000">{</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">buildInPin</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">tone</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#434f54">,</font> <font color="#000000">555</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">}</font> <font color="#5e6d03">else</font> &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">tempo</font> <font color="#434f54">&lt;</font> <font color="#000000">600</font><font color="#000000">)</font> <font color="#000000">{</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led1</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led2</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led3</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led4</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">buildInPin</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">noTone</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">tone</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#434f54">,</font> <font color="#000000">555</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">100</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">buildInPin</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">noTone</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">50</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">}</font> <font color="#5e6d03">else</font> &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">tempo</font> <font color="#434f54">&lt;</font> <font color="#000000">900</font><font color="#000000">)</font> <font color="#000000">{</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led1</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led2</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led3</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led4</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">buildInPin</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">noTone</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">tone</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#434f54">,</font> <font color="#000000">555</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">200</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">buildInPin</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">noTone</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">100</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">}</font> <font color="#5e6d03">else</font> &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">tempo</font> <font color="#434f54">&lt;</font> <font color="#000000">1200</font><font color="#000000">)</font> <font color="#000000">{</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led1</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led2</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led3</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led4</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">buildInPin</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">noTone</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">tone</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#434f54">,</font> <font color="#000000">555</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">300</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">buildInPin</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">noTone</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">200</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">}</font> <font color="#5e6d03">else</font> &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">tempo</font> <font color="#434f54">&lt;</font> <font color="#000000">1700</font><font color="#000000">)</font> <font color="#000000">{</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led1</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led2</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led3</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led4</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">buildInPin</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">noTone</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">tone</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#434f54">,</font> <font color="#000000">555</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">400</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">buildInPin</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">noTone</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">300</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">}</font> <font color="#5e6d03">else</font> &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">tempo</font> <font color="#434f54">&lt;</font> <font color="#000000">2000</font><font color="#000000">)</font> <font color="#000000">{</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led1</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led2</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led3</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led4</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">buildInPin</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">noTone</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">tone</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#434f54">,</font> <font color="#000000">555</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">500</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">buildInPin</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">noTone</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">400</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">}</font> <font color="#5e6d03">else</font> <font color="#000000">{</font> &nbsp;&nbsp;&nbsp;
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led1</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led2</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led3</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">led4</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">buildInPin</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">noTone</font><font color="#000000">(</font><font color="#000000">buzzer</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">}</font>
-<font color="#000000">}</font>
-
-</pre>
 <h2 class="tm-pt-30 tm-color-primary tm-post-title">
-  ATIVIDADE 2 - ENTREGA ATÉ 05/10/2023
+  ATIVIDADE 1 - ENTREGA ATÉ 04/10/2024
 </h2>
 <p>
-  A tarefa da aula de hoje está descrita no
-  <a
-    href="https://profdanilo.com.br/robotica/download/2023/8ano/Aula 14 - Ultrassom - sensor de ré.pdf"
-    target="_blank"
-    >arquivo usado em aula</a
-  >.
+  A <a href="download/2024/8ano/Aula 14 - 8 Ano - 3 tri Atividade 1.PDF" target="_blank"
+  >atividade 1</a
+> consiste na criação de um circuito elétrico simples usando a
+  plataforma Tinkercad.
 </p>
 <p>
-  <strong>SE VOCÊ NÃO ESTAVA NA AULA,</strong> então deverá utilizar a simulação
-  abaixo e responder às perguntas do
-  <a
-    href="https://profdanilo.com.br/robotica/download/2023/8ano/Aula 14 - Ultrassom - sensor de ré.pdf"
-    target="_blank"
-    >arquivo usado em aula</a
-  >.
+  Para realizar a atividade, entre na
+  <a href="https://www.tinkercad.com/joinclass/SDYKZ4EQD" target="_blank"
+    >sala de aula de robótica no Tinkercad</a
+  >, insira o número de seu RM no local onde se encontra o espaço para colocar
+  seu nick (apelido), crie o circuito solicitado e pronto. O sistema salva sua
+  atividade automaticamente e o professor irá corrigir a atividade pela conta
+  dele.
 </p>
+<p>
+  O circuito consiste em ligar um LED usando uma bateria 9 V e um resistor de
+  440 &ohm;. O objetivo é se familiarizar com a plataforma, portanto, não é
+  necessário usar chaves, placa de ensaio ou qualquer outro componente, embora o
+  aluno possa criar circuitos mais complexos para se familiarizar com a
+  plataforma.
+</p>
+<p>Assista o vídeo a seguir para entender melhor como proceder.</p>
 <iframe
-  width="560"
-  height="350"
-  src="https://www.tinkercad.com/embed/acKBnspWxsA?editbtn=1"
+  width="327"
+  height="184"
+  src="https://www.youtube.com/embed/4rvhYAPi6is"
+  title="YouTube video player"
   frameborder="0"
-  marginwidth="0"
-  marginheight="0"
-  scrolling="no"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
 ></iframe>
 <p>
-  Caso a simulação não funcione, tente acessar
-  <a href="https://www.tinkercad.com/things/acKBnspWxsA" target="_blank"
-    >a simulação no site do Tinkercad</a
-  >.
+  Uma vez feito o envio, o professor irá vê-lo e avaliá-lo. Pela plataforma do
+  Tinkercad você pode ver se o professor deixou alguma observação.
 </p>
 <p>
-  Não precisa imprimir a folha, se não quiser: basta responder às perguntas em
-  uma folha contendo seu nome.
-</p>
-<p>
-  Nota: o professor verificará em sala quem está presente, portanto ele saberá
-  se você faltou. Então, qualquer dúvida, não deixe de procurá-lo.
-</p>
-<p>
-  <strong> Até a próxima aula. </strong>
+  Critério de avaliação:
+  <ul>
+    <li>acessou o Tinkercad pela primeira vez: 3 pontos;</li>
+    <li>nome da atividade: 2 pontos;</li>
+    <li>colocou todos os componentes: 1 ponto;</li>
+    <li>alterou o valor da resistência para o valor solicitado: 2 pontos;</li>
+    <li>ligou todos os fios corretamente: 1 ponto;</li>
+    <li>o circuito funcionou como esperado ao iniciar a simulação: 1 ponto.</li>
+  </ul>
+  </p>
+  <p>
+  Não vamos aceitar atividades em atraso, embora casos particulares de alunos com dificuldades, faltas por motivo de saúde e outros possíveis casos particulares podem ser avaliados individualmente.
 </p>
