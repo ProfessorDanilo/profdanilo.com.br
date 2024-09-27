@@ -2,11 +2,15 @@
 
 // Função para verificar a data e exibir o botão
 function verificarData() {
-  const dataLimite = new Date('2025-10-01T00:00:00'); // Defina a data aqui
+  const dataLimite = new Date('2024-09-30T06:00:00'); // Defina a data aqui
   const dataAtual = new Date();
 
   if (dataAtual >= dataLimite) {
-    document.getElementById('aula9a-14').style.display = 'block'; // Exibe o botão
+    document.getElementById('aula7a-13').style.display = 'block'; // Exibe o botão
+    document.getElementById('aula6a-14').style.display = 'block';
+  } else {
+    document.getElementById('aula7a-13').style.display = 'none'; // Esconde o botão
+    document.getElementById('aula6a-14').style.display = 'none';
   }
 }
 // Chama a função quando a página carrega
@@ -18,12 +22,6 @@ function mostra(id) {
     document.getElementById(id).style.display = 'none';
   } else {
     document.getElementById(id).style.display = 'block';
-  }
-  /*agendando publicação*/
-  const dataLimite = new Date('2024-09-26T12:00:00'); // Defina a data aqui
-  const dataAtual = new Date();
-  if (dataAtual < dataLimite) {
-    document.getElementById('aula9a-14').style.display = 'none';
   }
 }
 
