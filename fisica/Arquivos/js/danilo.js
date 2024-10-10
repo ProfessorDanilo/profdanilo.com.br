@@ -3,7 +3,8 @@
 function loadDoc(id) {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function () {
-    document.getElementById(id).innerHTML = this.responseText;
+    document.getElementById(id).innerHTML = this.responseText;    
+    MathJax.typeset();
   };
   xhttp.open('GET', id + '.html', true);
   xhttp.send();
