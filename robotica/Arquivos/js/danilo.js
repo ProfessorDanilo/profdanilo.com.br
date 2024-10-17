@@ -2,21 +2,14 @@
 
 // Função para verificar a data e exibir o botão
 function verificarData() {
-  const dataLimite1 = new Date('2024-10-17T14:00:00'); // Defina a data aqui
+  const dataLimite1 = new Date('2024-10-24T14:00:00'); // Defina a data aqui
   const dataLimite2 = new Date('2024-10-13T14:00:00'); // Defina a data aqui
   const dataAtual = new Date();
 
   if (dataAtual >= dataLimite1) {
-    document.getElementById('aula9a-15').style.display = 'block'; // Exibe o botão
+    document.getElementById('aula9a-16').style.display = 'block'; // Exibe o botão
   } else {
-    document.getElementById('aula9a-15').style.display = 'none'; // Esconde o botão
-  }
-  if (dataAtual >= dataLimite2) {
-    document.getElementById('aula6a-15').style.display = 'block'; // Exibe o botão
-    document.getElementById('aula7a-14').style.display = 'block'; // Exibe o botão
-  } else {
-    document.getElementById('aula6a-15').style.display = 'none'; // Esconde o botão
-    document.getElementById('aula7a-14').style.display = 'none'; // Esconde o botão
+    document.getElementById('aula9a-16').style.display = 'none'; // Esconde o botão
   }
 }
 // Chama a função quando a página carrega
