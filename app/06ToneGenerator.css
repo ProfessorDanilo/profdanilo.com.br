@@ -1,0 +1,77 @@
+body {
+  background-color: #f0f8ff; /* Cor de fundo suave */
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  color: #4a90e2; /* Cor do título */
+}
+
+label {
+  font-size: 1.2em;
+  color: #333;
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 20px; /* Aumenta a altura do controle deslizante */
+  background: #e6e6e6; /* Cor de fundo da barra do controle deslizante */
+  border-radius: 10px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px; /* Aumenta a largura do botão do controle deslizante */
+  height: 30px; /* Aumenta a altura do botão do controle deslizante */
+  border-radius: 50%;
+  background: #4a90e2; /* Cor do botão do controle deslizante */
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #4a90e2;
+  cursor: pointer;
+}
+
+.waveform-select {
+  margin: 20px 0;
+  text-align: left;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+button {
+  background-color: #ffcccb; /* Cor de fundo do botão */
+  border: none;
+  color: #333;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #ff9999; /* Cor ao passar o mouse */
+}
