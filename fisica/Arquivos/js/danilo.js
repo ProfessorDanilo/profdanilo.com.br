@@ -11,7 +11,7 @@ function loadDoc(id) {
 }
 
 function verificarData() {
-  const dataLimite = new Date('2024-10-05T14:00:00'); // Defina a data aqui
+  const dataLimite = new Date('2024-11-05T14:00:00'); // Defina a data aqui
   const dataAtual = new Date();
 
   if (dataAtual >= dataLimite) {
