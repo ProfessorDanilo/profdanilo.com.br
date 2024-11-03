@@ -10,6 +10,19 @@ function loadDoc(id) {
   xhttp.send();
 }
 
+function verificarData() {
+  const dataLimite = new Date('2024-11-05T14:00:00'); // Defina a data aqui
+  const dataAtual = new Date();
+
+  if (dataAtual >= dataLimite) {
+    document.getElementById('lab_aula18').style.display = 'block'; // Exibe o botão
+  } else {
+    document.getElementById('lab_aula18').style.display = 'none'; // Esconde o botão
+  }
+}
+// Chama a função quando a página carrega
+window.onload = verificarData;
+
 /*meu script 2022*/
 
 function mostrateste(id) {
