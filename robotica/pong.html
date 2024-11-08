@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Pong</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+            margin: 0;
+        }
+
+        canvas {
+            border: 2px solid white;
+            background-color: black;
+        }
+
+        h1 {
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Jogo Pong</h1>
+    <canvas id="pong" width="800" height="400"></canvas>
+
+    <script>
+        // Configuração do Canvas
+        const canvas = document.getElementById("pong");
+        const ctx = canvas.getContext("2d");
+
+        // Variáveis da bola
+        let ballRadius = 10;
+        let x = canvas.width / 2;
+        let y = canvas.height / 2;
+        let dx = 4;
+        let dy = 4;
+
+        // Variáveis das raquetes
+        const paddleWidth = 10;
+        const paddleHeight = 100;
+        let leftPaddleY = (canvas.height - paddleHeight) / 2;
+        let rightPaddleY = (canvas.height - paddleHeight) / 2;
+
+        // Velocidade das raquetes
+        const paddleSpeed = 5;
+
+        // Placar
+        let leftScore = 0;
+        let rightScore = 0;
+
+        // Função para desenhar a bola
+        function drawBall() {
+            ctx.beginPath();
+            ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+            ctx.fillStyle = "#FFFFFF";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        // Função para desenhar a raquete
+        function drawPaddle(x, y) {
+            ctx.beginPath();
+            ctx.rect(x, y, paddleWidth, paddleHeight);
+            ctx.fillStyle = "#FFFFFF";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        // Função para desenhar o placar
+        function drawScore() {
+            ctx.font = "32px Arial";
+            ctx.fillStyle = "#FFFFFF";
+            ctx.fillText(leftScore, canvas.width / 4, 40);
+            ctx.fillText(rightScore, 3 * canvas.width / 4, 40);
+        }
+
+        // Função para atualizar a posição da bola
+        function updateBall() {
+            x += dx;
+            y += dy;
+
+            // Colisão com as paredes superior e inferior
+            if (y - ballRadius < 0 || y + ballRadius > canvas.height) {
+                dy = -dy;
+            }
+
+            // Colisão com as raquetes
+            if (x - ballRadius < paddleWidth && y > leftPaddleY && y < leftPaddleY + paddleHeight) {
+                dx = -dx;
+            }
+            if (x + ballRadius > canvas.width - paddleWidth && y > rightPaddleY && y < rightPaddleY + paddleHeight) {
+                dx = -dx;
+            }
+
+            // Pontuação
+            if (x - ballRadius < 0) {
+                rightScore++;
+                resetBall();
+            } else if (x + ballRadius > canvas.width) {
+                leftScore++;
+                resetBall();
+            }
+        }
+
+        // Função para reiniciar a bola
+        function resetBall() {
+            x = canvas.width / 2;
+            y = canvas.height / 2;
+            dx = -dx;
+            dy = 4;
+        }
+
+        // Função para desenhar o jogo
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpa o canvas
+
+            drawBall();
+            drawPaddle(0, leftPaddleY); // Raquete esquerda
+            drawPaddle(canvas.width - paddleWidth, rightPaddleY); // Raquete direita
+            drawScore();
+        }
+
+        // Função para controlar as raquetes com as teclas
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "w" && leftPaddleY > 0) {
+                leftPaddleY -= paddleSpeed;
+            } else if (e.key === "s" && leftPaddleY < canvas.height - paddleHeight) {
+                leftPaddleY += paddleSpeed;
+            } else if (e.key === "ArrowUp" && rightPaddleY > 0) {
+                rightPaddleY -= paddleSpeed;
+            } else if (e.key === "ArrowDown" && rightPaddleY < canvas.height - paddleHeight) {
+                rightPaddleY += paddleSpeed;
+            }
+        });
+
+        // Função para atualizar o jogo a cada quadro
+        function update() {
+            updateBall();
+            draw();
+        }
+
+        // Inicia o jogo
+        setInterval(update, 1000 / 60); // Atualiza a cada 60 quadros por segundo
+    </script>
+</body>
+</html>
