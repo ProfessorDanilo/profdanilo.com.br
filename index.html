@@ -1,218 +1,228 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Apps do Professor Danilo</title>
-  <link rel="shortcut icon" href="fisica/Arquivos/img/favicon.ico" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f4f4f4;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apps do Professor Danilo</title>
+    <link rel="shortcut icon" href="fisica/Arquivos/img/favicon.ico" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f4f4f4;
+      }
 
-    header {
-      background-color: #007bff;
-      color: white;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-    }
+      header {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+      }
 
-    .logo {
-      font-size: 1.5em;
-      font-weight: bold;
-    }
+      .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+      }
 
-    .menu-toggle {
-      font-size: 26px;
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-      display: none;
-    }
-
-    nav {
-      display: flex;
-      gap: 15px;
-    }
-
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 15px;
-      align-items: center;
-    }
-
-    nav ul li {
-      position: relative;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 8px 12px;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
-
-    nav a:hover {
-      background-color: #0056b3;
-    }
-
-    /* Submenu (dropdown) */
-    .submenu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: #007bff;
-      flex-direction: column;
-      min-width: 200px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      z-index: 10;
-    }
-
-    .submenu a {
-      padding: 10px;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-    }
-
-    nav ul li:hover .submenu {
-      display: flex;
-    }
-
-    /* Responsividade */
-    @media (max-width: 768px) {
       .menu-toggle {
-        display: block;
+        font-size: 26px;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        display: none;
       }
 
       nav {
-        display: none;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: #007bff;
-        flex-direction: column;
-        padding: 10px 0;
-      }
-
-      nav.active {
         display: flex;
+        gap: 15px;
       }
 
       nav ul {
-        flex-direction: column;
-        gap: 0;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+      }
+
+      nav ul li {
+        position: relative;
       }
 
       nav a {
-        padding: 12px 20px;
+        color: white;
+        text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
       }
 
+      nav a:hover {
+        background-color: #0056b3;
+      }
+
+      /* Submenu (dropdown) */
       .submenu {
-        position: relative;
-        box-shadow: none;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #007bff;
+        flex-direction: column;
+        min-width: 200px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 10;
+      }
+
+      .submenu a {
+        padding: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       }
 
       nav ul li:hover .submenu {
         display: flex;
       }
-    }
 
-    /* Conteúdo principal */
-    .main-content {
-      text-align: center;
-      padding: 40px 20px;
-    }
+      /* Responsividade */
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
 
-    .main-content h2 {
-      color: #333;
-    }
+        nav {
+          display: none;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          width: 100%;
+          background-color: #007bff;
+          flex-direction: column;
+          padding: 10px 0;
+        }
 
-    .main-content p {
-      max-width: 600px;
-      margin: 0 auto 30px auto;
-      font-size: 18px;
-      color: #555;
-    }
+        nav.active {
+          display: flex;
+        }
 
-    .image-container img {
-      width: 150px;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+        nav ul {
+          flex-direction: column;
+          gap: 0;
+        }
 
-    .image-container img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    }
+        nav a {
+          padding: 12px 20px;
+        }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-  </style>
-</head>
-<body>
+        .submenu {
+          position: relative;
+          box-shadow: none;
+        }
 
-  <header>
-    <div class="logo">Professor Danilo</div>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    <nav id="navbar">
-      <ul>
-        <li><a href="https://1drv.ms/f/s!Apb5ZDjBA-ojodkPasOKcXsFJI3UbQ?e=N4wUYG" target="_blank">Folhinhas 2025</a></li>
-        <li>
-          <a href="#">APP</a>
-          <div class="submenu">
-            <a href="app/01relogio.html">Relógio</a>
-            <a href="app/06ToneGenerator.html">Tone Generator</a>
-            <a href="app/02fisica.html">Jogos de Física</a>
-            <a href="app/03WaMe.html">WhatsApp</a>
-            <a href="app/04chassis.html">Chassi Carro</a>
-            <a href="/app/responda">Escolha uma Alternativa</a>
-          </div>
-        </li>
-        <li><a href="/fisica">Física Aulas 2024</a></li>
-        <li><a href="/robotica">Robótica Aulas 2024</a></li>
-        <li><a href="https://youtube.com/professordanilo" target="_blank">YouTube</a></li>
-      </ul>
-    </nav>
-  </header>
+        nav ul li:hover .submenu {
+          display: flex;
+        }
+      }
 
-  <div class="main-content">
-    <h2>Plataforma Moodle para a Aulas de Reforço</h2>
-    <p>
-      Estamos utilizando a plataforma Moodle para ministrar aulas de reforço em diversas disciplinas.
-      <a href="\moodle">Acesse os conteúdos</a>, participe das atividades e acompanhe seu progresso.
-    </p>
-    <a href="/moodle">
-      <div class="image-container">
-        <img width="30" height="20" src="moodle.png" alt="Imagem Moodle"/>
-      </div>
-    </a>
-  </div>
+      /* Conteúdo principal */
+      .main-content {
+        text-align: center;
+        padding: 40px 20px;
+      }
 
-  <footer>
-  </footer>
+      .main-content h2 {
+        color: #333;
+      }
 
-  <script>
-    function toggleMenu() {
-      const nav = document.getElementById('navbar');
-      nav.classList.toggle('active');
-    }
-  </script>
-</body>
+      .main-content p {
+        max-width: 600px;
+        margin: 0 auto 30px auto;
+        font-size: 18px;
+        color: #555;
+      }
+
+      .image-container img {
+        width: 150px;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .image-container img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">Professor Danilo</div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <nav id="navbar">
+        <ul>
+          <li>
+            <a
+              href="https://onedrive.live.com/?authkey=%21ANuIp%2D0Vam%5FF9cA&id=23EA03C13864F996%21568024&cid=23EA03C13864F996"
+              target="_blank"
+              >Folhinhas 2025</a
+            >
+          </li>
+          <li>
+            <a href="#">APP</a>
+            <div class="submenu">
+              <a href="app/01relogio.html">Relógio</a>
+              <a href="app/06ToneGenerator.html">Tone Generator</a>
+              <a href="app/02fisica.html">Jogos de Física</a>
+              <a href="app/03WaMe.html">WhatsApp</a>
+              <a href="app/04chassis.html">Chassi Carro</a>
+              <a href="/app/responda">Escolha uma Alternativa</a>
+            </div>
+          </li>
+          <li><a href="/fisica">Física Aulas 2024</a></li>
+          <li><a href="/robotica">Robótica Aulas 2024</a></li>
+          <li>
+            <a href="https://youtube.com/professordanilo" target="_blank"
+              >YouTube</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="main-content">
+      <h2>Plataforma Moodle para a Aulas de Reforço</h2>
+      <p>
+        Estamos utilizando a plataforma Moodle para ministrar aulas de reforço
+        em diversas disciplinas.
+        <a href="\moodle">Acesse os conteúdos</a>, participe das atividades e
+        acompanhe seu progresso.
+      </p>
+      <a href="/moodle">
+        <div class="image-container">
+          <img width="30" height="20" src="moodle.png" alt="Imagem Moodle" />
+        </div>
+      </a>
+    </div>
+
+    <footer></footer>
+
+    <script>
+      function toggleMenu() {
+        const nav = document.getElementById('navbar');
+        nav.classList.toggle('active');
+      }
+    </script>
+  </body>
 </html>
