@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Verificar Ano do Carro</title>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Verificar Ano do Carro</title>
     <script>
       function getCarYear() {
         var chassiDigit = document
@@ -62,14 +62,189 @@
         }
       }
     </script>
-  </head>
-  <body>
-    <h1>Verificar Ano do Carro</h1>
+  <link rel="shortcut icon" href="fisica/Arquivos/img/favicon.ico" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .menu-toggle {
+      font-size: 26px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      display: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #0056b3;
+    }
+
+    /* Submenu (dropdown) */
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #007bff;
+      flex-direction: column;
+      min-width: 200px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+
+    .submenu a {
+      padding: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    nav ul li:hover .submenu {
+      display: flex;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #007bff;
+        flex-direction: column;
+        padding: 10px 0;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      nav a {
+        padding: 12px 20px;
+      }
+
+      .submenu {
+        position: relative;
+        box-shadow: none;
+      }
+
+      nav ul li:hover .submenu {
+        display: flex;
+      }
+    }
+
+    /* Conteúdo principal */
+    .main-content {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .main-content h2 {
+      color: #333;
+    }
+
+    .main-content p {
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+      font-size: 18px;
+      color: #555;
+    }
+
+    .image-container img {
+      width: 150px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .image-container img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Professor Danilo</div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <nav id="navbar">
+      <ul>
+        <li><a href="..\" target="_blank">Início</a></li>        
+      </ul>
+    </nav>
+  </header>
+
+  <div class="main-content">
+    <div style="max-width: 600px; margin: 20px auto; font-size: 16px; color: #555;">
+      <h3>Verificar Ano do Carro</h3>
     <form onsubmit="getCarYear(); return false;">
       <label for="chassiDigit"
         >Digite o primeiro número ou letra do chassi do carro:</label
-      >
+      ><br>
       <input
+        placeholder="Exemplo: 8 ou  k"
         type="text"
         id="chassiDigit"
         name="chassiDigit"
@@ -78,6 +253,34 @@
       />
       <button type="submit">Verificar</button>
     </form>
-    <p id="result"></p>
-  </body>
+    <h3 id="result"></h3><br>
+      <h3>Como funciona o reconhecimento do ano do veículo:</h3>
+      <p>
+        A identificação do ano do veículo é feita com base <strong>no 10º caractere do número do chassi (VIN)</strong>.
+        Esse caractere pode ser <strong>um número ou uma letra</strong>, e cada um representa um <strong>ano de fabricação</strong>.
+      </p>
+      <p>
+        Por exemplo:
+        <ul>
+          <li>O número <strong>"3"</strong> pode indicar o ano <strong>2003</strong> (ou 1973, dependendo do contexto).</li>
+          <li>A letra <strong>"L"</strong> representa o ano <strong>2020</strong> (ou 1990, em veículos mais antigos).</li>
+        </ul>
+      </p>
+      <p>
+        Como o sistema de identificação <strong>se repete a cada 30 anos</strong>, este app mostra <strong>duas possibilidades de ano</strong>: uma atual e outra de 30 anos atrás.
+      </p>
+      <p><strong>📌 Importante:</strong></p>
+      <ul>
+        <li>As letras <strong>I, O, Q, U e Z</strong> não são utilizadas para evitar confusão com números e outras letras.</li>
+        <li>Este método segue o <strong>padrão internacional VIN</strong>, usado pela maioria das montadoras de veículos.</li>
+      </ul>
+    </div>
+    
+  </div>
+
+  <footer>
+    <p>© 2025 Professor Danilo - Todos os direitos reservados</p>
+  </footer>
+</body>
 </html>
+
