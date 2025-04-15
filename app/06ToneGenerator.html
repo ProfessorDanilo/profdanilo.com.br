@@ -1,30 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Controlador de Frequência</title>
-    <link rel="stylesheet" href="06ToneGenerator.css">
-</head>
-<body>
+    <link rel="stylesheet" href="06ToneGenerator.css" />
+  </head>
+  <body>
     <div class="container">
-        <h1>Gerador de Som com Controle de Frequência</h1>
-        <label for="frequencySlider">Frequência: <span id="frequencyValue">200</span> Hz</label>
-        <input type="range" id="frequencySlider" min="20" max="500" value="20" step="1">
-        
-        <div class="buttons">
-            <button id="playButton">Tocar Som</button>
-            <button id="stopButton">Parar Som</button>
-        </div>
-        <div class="waveform-select">
-            <h3>Formato da Onda:</h3>
-            <label><input type="radio" name="waveform" value="sine" checked> Senoidal</label><br>
-            <label><input type="radio" name="waveform" value="square"> Quadrada</label><br>
-            <label><input type="radio" name="waveform" value="sawtooth"> Dente de Serra</label><br>
-            <label><input type="radio" name="waveform" value="triangle"> Triangular</label>
-        </div>
+      <h1>Gerador de Som com Controle de Frequência</h1>
+      <label for="frequencySlider"
+        >Frequência: <span id="frequencyValue">200</span> Hz</label
+      >
+      <input
+        type="range"
+        id="frequencySlider"
+        min="20"
+        max="500"
+        value="200"
+        step="1"
+      />
 
+      <div class="buttons">
+        <button id="playButton">Tocar Som</button>
+        <button id="stopButton">Parar Som</button>
+      </div>
+      <div class="waveform-select">
+        <h3>Formato da Onda:</h3>
+        <label
+          ><input type="radio" name="waveform" value="sine" checked />
+          Senoidal</label
+        ><br />
+        <label
+          ><input type="radio" name="waveform" value="square" /> Quadrada</label
+        ><br />
+        <label
+          ><input type="radio" name="waveform" value="sawtooth" /> Dente de
+          Serra</label
+        ><br />
+        <label
+          ><input type="radio" name="waveform" value="triangle" />
+          Triangular</label
+        >
+      </div>
     </div>
     <script src="06ToneGenerator.js"></script>
-</body>
+  </body>
 </html>

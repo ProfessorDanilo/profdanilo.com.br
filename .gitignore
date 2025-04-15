@@ -5,6 +5,8 @@
 /fisica/download/2021/
 /fisica/download/2022/
 /fisica/download/2023/
+/fisica/download/2024/
+/fisica/aleatorios/
 /fisica/download/diversos
 /fisica/download/aulas%20particulares
 /fisica/video
@@ -14,3 +16,5 @@
 /robotica/download/2023/
 /python/3blue1brown
 /scratch
+IniciarServidor.py
+site.bat
