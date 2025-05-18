@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>GPS MOBFOG</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; }
+    button, input { margin: 5px 0; padding: 10px; width: 100%; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+  </style>
+</head>
+<body>
+
+<h2>Registro de Lançamento - MOBFOG</h2>
+
+<button id="btnInicial">Coletar Posição Inicial</button>
+
+<input type="text" id="grupo" placeholder="Nome da equipe/grupo" disabled />
+<button id="btnGravar" disabled>Gravar Foguete</button>
+<button id="btnFinalizar" style="display:none;">Finalizar Coleta</button>
+
+<div id="status">Aguardando...</div>
+<div id="resultado"></div>
+
+<script>
+let s0 = null;
+let dados = [];
+
+function agoraISO() {
+  return new Date().toISOString().replace("T", " ").split(".")[0];
+}
+
+function haversine(lat1, lon1, lat2, lon2) {
+  const R = 6371000;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dLat/2)**2 +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+            Math.sin(dLon/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+function coletarPosicao(callback) {
+  if (!navigator.geolocation) {
+    alert("Geolocalização não suportada.");
+    return;
+  }
+  navigator.geolocation.getCurrentPosition(
+    pos => callback(pos.coords),
+    err => alert("Erro ao obter localização: " + err.message),
+    { enableHighAccuracy: true }
+  );
+}
+
+document.getElementById("btnInicial").onclick = () => {
+  coletarPosicao(coords => {
+    const hora = agoraISO();
+    s0 = coords;
+    dados.push({
+      id: 0,
+      grupo: "posição inicial",
+      hora,
+      lat: coords.latitude,
+      lon: coords.longitude,
+      distancia: 0
+    });
+    document.getElementById("status").innerText =
+      `Posição inicial registrada em ${hora}`;
+    document.getElementById("grupo").disabled = false;
+    document.getElementById("btnGravar").disabled = false;
+  });
+};
+
+document.getElementById("btnGravar").onclick = () => {
+  const grupo = document.getElementById("grupo").value.trim();
+  if (!grupo) {
+    alert("Informe o nome do grupo.");
+    return;
+  }
+  coletarPosicao(coords => {
+    const hora = agoraISO();
+    const distancia = haversine(
+      s0.latitude, s0.longitude,
+      coords.latitude, coords.longitude
+    );
+    dados.push({
+      id: dados.length,
+      grupo,
+      hora,
+      lat: coords.latitude,
+      lon: coords.longitude,
+      distancia: distancia.toFixed(2)
+    });
+    document.getElementById("grupo").value = "";
+    document.getElementById("status").innerText =
+      `Grupo ${grupo} registrado. Distância: ${distancia.toFixed(2)} metros.`;
+    document.getElementById("btnFinalizar").style.display = "block";
+  });
+};
+
+document.getElementById("btnFinalizar").onclick = () => {
+  // Mostrar tabela
+  let html = "<table><tr><th>Grupo</th><th>Distância (m)</th></tr>";
+  for (let i = 1; i < dados.length; i++) {
+    html += `<tr><td>${dados[i].grupo}</td><td>${dados[i].distancia}</td></tr>`;
+  }
+  html += "</table>";
+  document.getElementById("resultado").innerHTML = html;
+
+  // Gerar CSV
+  let csv = "id,grupo,hora,latitude,longitude,distancia\\n";
+  for (let d of dados) {
+    csv += `${d.id},"${d.grupo}",${d.hora},${d.lat},${d.lon},${d.distancia}\\n`;
+  }
+
+  const blob = new Blob([csv], { type: "text/csv" });
+  const a = document.createElement("a");
+  const nome = new Date().toISOString().replace(/[:T]/g, "-").split(".")[0] + ".csv";
+  a.href = URL.createObjectURL(blob);
+  a.download = nome;
+  a.textContent = "Clique aqui para baixar o arquivo CSV";
+  a.style.display = "block";
+  a.style.marginTop = "20px";
+  document.getElementById("resultado").appendChild(a);
+
+  // Desativa botões
+  document.getElementById("btnGravar").disabled = true;
+  document.getElementById("btnFinalizar").disabled = true;
+  document.getElementById("grupo").disabled = true;
+};
+</script>
+
+</body>
+</html>
