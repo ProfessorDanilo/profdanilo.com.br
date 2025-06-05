@@ -1,48 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Galeria de GIFs</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 20px;
-      background-color: #f4ecd8; /* tom sépia */
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galeria de GIFs</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 20px;
+        background-color: #f4ecd8; /* tom sépia */
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
 
-    h1 {
-      color: #5c3a21;
-    }
+      h1 {
+        color: #5c3a21;
+      }
 
-    .gif-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
+      .gif-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
 
-    .gif-container img {
-      max-width: 100%;
-      height: auto;
-      border: 3px solid #c4a484;
-      border-radius: 10px;
-    }
-  </style>
-</head>
-<body>
+      .gif-container img {
+        max-width: 100%;
+        height: auto;
+        border: 3px solid #c4a484;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Minha Galeria de GIFs</h1>
 
-  <h1>Minha Galeria de GIFs</h1>
-
-  <div class="gif-container">
-    <img src="cavaloAnimado.gif" alt="Imagem representa a sequencia de várias fotos de um cavalo dando a impressão de movimento."><!--
+    <div class="gif-container">
+      <img
+        src="cavaloAnimado.gif"
+        alt="Imagem representa a sequencia de várias fotos de um cavalo dando a impressão de movimento."
+      width="500" />
+      <a href="cavaloAnimado.gif" target="_blank">
+        <button type="button" name="ABRIR"> ABRIR </button>
+      </a>
+      <img src="ventilador.gif" alt="Imagem representa sequencia de várias fotos de um ventilador girando no sentido anti-horário, porém dá-se a impressão dele girar no sentido horário." width="300"/>
+      <a href="ventilador.gif">
+        <button>ABRIR</button>
+      </a>
+      <!--
     <img src="https://media.giphy.com/media/l3vR85PnGsBwu1PFK/giphy.gif" alt="GIF 2">
     <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="GIF 3">-->
-  </div>
-
-</body>
+    </div>
+  </body>
 </html>
