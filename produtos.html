@@ -1,27 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Professor Danilo",
-        "jobTitle": "Professor de Física e Matemática",
-        "description": "Ofereço aulas particulares de física e matemática online para ensino médio e vestibulares. Reforço escolar com foco individualizado.",
-        "url": "https://profdanilo.com.br",
-        "email": "mailto:danilolimacomp@gmail.com",
-        "telephone": "+55-19-98203-3353",
-        "sameAs": [
-          "https://www.youtube.com/@professordanilo",
-          "https://api.whatsapp.com/send?phone=5519982033353"
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressCountry": "BR",
-          "addressRegion": "SP"
-        }
-      }
-      </script>
+    
       
       
     <meta charset="UTF-8" />
@@ -85,6 +65,19 @@
         border-radius: 5px;
         transition: background-color 0.3s;
       }
+
+      a.botao-voltar {
+      display: inline-block;
+      padding: 0.6em 1.2em;
+      background-color: #003366;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 2em;
+    }
+    a.botao-voltar:hover {
+      background-color: #0055aa;
+    }
 
       nav a:hover {
         background-color: #0056b3;
@@ -237,32 +230,23 @@
     </header>
 
     <div class="main-content">
-      <h1>Aulas de Reforço Online</h1>
-      <h2>Plataforma Moodle</h2>
-      <p>
-        Estamos utilizando a plataforma Moodle para ministrar aulas de reforço
-        em diversas disciplinas.
-        <a href="\moodle">Acesse os conteúdos</a>, participe das atividades e
-        acompanhe seu progresso.
-      </p>
-      <a href="/moodle">
-        <div class="image-container">
-          <img width="30" height="20" src="moodle.png" alt="Imagem Moodle" />
-        </div>
-      </a>
-      <br>
-      <p>
-        ATENÇÃO: esta plataforma não tem nenhuma relação com qualquer universidade pública ou privada, portanto o login não é compartilhado. Recomenda-se inclusive usar senha diferente para acessar este site. <br>
-        Aqui resolvemos em vídeo e discutimos os exercícios em fóruns de dúvidas na plataforma, não sendo as listas de autoria do proprietário da plataforma. 
-      </p>
-    </div>
+      <h1>Produtos disponíveis no momento</h1>
+      
+      <script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
 
-    <footer>
-      Caso tenha interesse em saber mais sobre este serviço, entre em contato por 
-      <a href="mailto:danilolimacomp@gmail.com?subject=Sobre aulas de reforço online&body=Gostaria de mais informações sobre o serviço de aulas online.">e-mail</a> (danilolimacomp@gmail.com) ou entre em contato via <a href="https://api.whatsapp.com/send?phone=5519982033353&text=Sobre%20aulas%20de%20reforço%20online." target="_blank">WhatsApp</a>.
- 
+<stripe-buy-button
+  buy-button-id="buy_btn_1Rgt5RP4qt3ttDZPYgzeNXnj"
+  publishable-key="pk_live_51Razn9P4qt3ttDZPuBzfWO7oMvNC5UX8J8z4yhy9rzNiygtnEBdilD4U0CW9rXdzeABxQxaicasKbj0ead2HCDtG00a9zGeKWg"
+>
+</stripe-buy-button>
+    
 
-    </footer>
+
+</div>
+
+<a href="javascript:history.back()" class="botao-voltar">← Voltar</a>
 
     <script>
       function toggleMenu() {
