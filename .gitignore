@@ -1,23 +1,12 @@
 /.vscode
-/fisica/antigos
-/fisica/download/2019/
-/fisica/download/2020/
-/fisica/download/2021/
-/fisica/download/2022/
-/fisica/download/2023/
-/fisica/download/2024/
-/fisica/aleatorios/
-/fisica/download/diversos
-/fisica/download/aulas%20particulares
-/fisica/video
-/robotica/antigos
-/robotica/figuras
-/robotica/download/2022/
-/robotica/download/2023/
+/fisica
+/robotica
+/tcc
 /python
 /scratch
 IniciarServidor.py
 site.bat
 /moodle-3.9.25.zip
 /moodle
+produtosSTRIPEaNTIGO.html
 

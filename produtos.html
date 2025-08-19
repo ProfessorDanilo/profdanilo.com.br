@@ -231,67 +231,20 @@
 
     <div class="main-content">
       <h1>Produtos disponíveis no momento</h1>
-      <p>Para pagamento via PIX, acesse o <a href="https://forms.gle/QguXPF1wmwEPUH3S6" target="_blank">formulário de pagamento </a> para enviar o comprovante. </p>
+      
+      <p>No momento, temos disponível apenas a apostila de revisão para o ENEM - Física. Note que esta apostila contém apenas questões de Física. </p>
       <p>É NECESSÁRIO ENVIAR O COMPROVANTE DO PAGAMENTO VIA PIX.</p>
-
-      <!--ENEM-->
-<script async
-  src="https://js.stripe.com/v3/buy-button.js">
-</script>
-
-<stripe-buy-button
-  buy-button-id="buy_btn_1RoE7YP4qt3ttDZP7pi4QXwc"
-  publishable-key="pk_live_51Razn9P4qt3ttDZPuBzfWO7oMvNC5UX8J8z4yhy9rzNiygtnEBdilD4U0CW9rXdzeABxQxaicasKbj0ead2HCDtG00a9zGeKWg"
->
-</stripe-buy-button>
-
-
-      <!--FUVEST-->
-<stripe-buy-button
-  buy-button-id="buy_btn_1RoE9oP4qt3ttDZPVhgC3hF9"
-  publishable-key="pk_live_51Razn9P4qt3ttDZPuBzfWO7oMvNC5UX8J8z4yhy9rzNiygtnEBdilD4U0CW9rXdzeABxQxaicasKbj0ead2HCDtG00a9zGeKWg"
->
-</stripe-buy-button>
-
-
-      
-      <!--UNESP-->
-<stripe-buy-button
-  buy-button-id="buy_btn_1RoEBQP4qt3ttDZPpCuffMCw"
-  publishable-key="pk_live_51Razn9P4qt3ttDZPuBzfWO7oMvNC5UX8J8z4yhy9rzNiygtnEBdilD4U0CW9rXdzeABxQxaicasKbj0ead2HCDtG00a9zGeKWg"
->
-</stripe-buy-button>
-
-
-
-      
-      <!--UNICAMP-->
-
-<stripe-buy-button
-  buy-button-id="buy_btn_1RoECHP4qt3ttDZP3WL1qvPI"
-  publishable-key="pk_live_51Razn9P4qt3ttDZPuBzfWO7oMvNC5UX8J8z4yhy9rzNiygtnEBdilD4U0CW9rXdzeABxQxaicasKbj0ead2HCDtG00a9zGeKWg"
->
-</stripe-buy-button>
-
-
-
-      
-      <!--PRÉ-VENTA FÍSICA 2026-->
-
-
-      
-      <!--ANÁLISE ENERGÉTICA-->
-      
-
-      <!--ESTATÍSTICA-->
-
     
 
-      <!--AMBIENTES ATMOSFÉRICOS-->
-
-
 </div>
-
+<div id="produto-enem"></div>
+<script>
+  fetch("produtos/MLENEM2025.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("produto-enem").innerHTML = data;
+    });
+</script>
 <a href="javascript:history.back()" class="botao-voltar">← Voltar</a>
 
     <script>
