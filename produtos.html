@@ -16,6 +16,10 @@
         background-color: #f4f4f4;
       }
 
+      h1{
+        margin-top: -20px;
+      }
+
       header {
         background-color: #007bff;
         color: white;
@@ -39,6 +43,16 @@
         cursor: pointer;
         display: none;
       }
+      .produto-box {
+    width: 300px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 20px auto;
+  }
 
       nav {
         display: flex;
@@ -73,7 +87,9 @@
       color: white;
       text-decoration: none;
       border-radius: 5px;
-      margin-top: 2em;
+      margin-top: 10px;
+      margin-left: 15px;
+      margin-bottom: 0px;
     }
     a.botao-voltar:hover {
       background-color: #0055aa;
@@ -228,15 +244,25 @@
         </ul>
       </nav>
     </header>
+<!--BOTÃO VOLTAR-->
+<a href="javascript:history.back()" class="botao-voltar">← Voltar</a>
 
+    <script>
+      function toggleMenu() {
+        const nav = document.getElementById('navbar');
+        nav.classList.toggle('active');
+      }
+</script>
     <div class="main-content">
       <h1>Produtos disponíveis no momento</h1>
       
-      <p>No momento, temos disponível apenas a apostila de revisão para o ENEM - Física. Note que esta apostila contém apenas questões de Física. </p>
-      <p>É NECESSÁRIO ENVIAR O COMPROVANTE DO PAGAMENTO VIA PIX.</p>
+      <p>No momento, está disponível apenas a apostila de revisão para o ENEM - Física. Esta apostila contém apenas questões de Física. </p>
+      <p>Compre com a segurança e agilidade de entrega do Mercado Livre:
+      </p>
     
 
 </div>
+<!--PRODUTO MERCADO LIVRE-->
 <div id="produto-enem"></div>
 <script>
   fetch("produtos/MLENEM2025.html")
@@ -245,6 +271,22 @@
       document.getElementById("produto-enem").innerHTML = data;
     });
 </script>
+
+<!--PRODUTO STRIPE-->
+<!--
+<div class="produto-box">
+<stripe-buy-button
+  buy-button-id="buy_btn_1Ry0plP4qt3ttDZPsmzx7b8S"
+  publishable-key="pk_live_51Razn9P4qt3ttDZPuBzfWO7oMvNC5UX8J8z4yhy9rzNiygtnEBdilD4U0CW9rXdzeABxQxaicasKbj0ead2HCDtG00a9zGeKWg"
+>
+</stripe-buy-button>
+</div>
+<script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
+-->
+
+<!--BOTÃO VOLTAR-->
 <a href="javascript:history.back()" class="botao-voltar">← Voltar</a>
 
     <script>
@@ -252,6 +294,6 @@
         const nav = document.getElementById('navbar');
         nav.classList.toggle('active');
       }
-    </script>
+</script>
   </body>
 </html>
