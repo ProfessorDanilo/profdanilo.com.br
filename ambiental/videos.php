@@ -4,6 +4,17 @@ if (empty($_SESSION["autenticado"])) {
     header("Location: index.php");
     exit;
 }
+
+
+// --- LOG DE ACESSOS ---
+$ip = $_SERVER['REMOTE_ADDR'] ?? 'desconhecido';
+$data = date('Y-m-d H:i:s');
+$arquivo_log = __DIR__ . '/acessos.log';
+
+// Salva a linha no arquivo
+$linha = "$data - IP: $ip\n";
+file_put_contents($arquivo_log, $linha, FILE_APPEND);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
