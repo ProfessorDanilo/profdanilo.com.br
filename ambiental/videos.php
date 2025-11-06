@@ -29,65 +29,39 @@ file_put_contents($arquivo_log, $linha, FILE_APPEND);
 </head>
 <body>
     <p dir="ltr" style="text-align: left;"></p>
-<h3>Exercício 1</h3>
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1132343947?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin"
-        style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Exercício 01 - Lista 07 - Ambiente Atmosférico"></iframe></div>
-<script src="https://player.vimeo.com/api/player.js"></script>
-<p><br></p>
-<h3>Exercício 2</h3><br>
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1132343992?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin"
-        style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Exercício 02 - Lista 07 - Ambiente Atmosférico"></iframe></div>
-<script src="https://player.vimeo.com/api/player.js"></script>
-<p></p>
-<p></p>
-<h3>Exercício 3</h3><br>
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1132344027?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin"
-        style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Exercício 03 - Lista 07 - Ambiente Atmosférico"></iframe></div>
-<script src="https://player.vimeo.com/api/player.js"></script>
-<p></p>
-<p></p>
-<h3>Exercício 4</h3><br>
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1132344053?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin"
-        style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Exercício 04 - Lista 07 - Ambiente Atmosférico"></iframe></div>
-<script src="https://player.vimeo.com/api/player.js"></script>
-<p></p>
-<p></p>
-<h3>Exercício 5</h3><br>
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1132344085?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin"
-        style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Exercício 05 - Lista 07 - Ambiente Atmosférico"></iframe></div>
-<script src="https://player.vimeo.com/api/player.js"></script>
-<p></p>
-<p></p>
-<h3>Exercício 6</h3><br>
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1132344102?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin"
-        style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Exercício 06 - Lista 07 - Ambiente Atmosférico"></iframe></div>
-<script src="https://player.vimeo.com/api/player.js"></script>
-<p></p>
-<p></p>
-<h3>Exercício 7</h3><br>
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1132344127?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin"
-        style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Exercício 07 - Lista 07 - Ambiente Atmosférico"></iframe></div>
-<script src="https://player.vimeo.com/api/player.js"></script>
-<p></p>
-<p></p>
-<h3>Exercício 8</h3><br>
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1132344138?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin"
-        style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Exercício 08 - Lista 07 - Ambiente Atmosférico"></iframe></div>
-<script src="https://player.vimeo.com/api/player.js"></script>
-<script src="https://player.vimeo.com/api/player.js"></script>
-<p></p>
-<p></p>
-<h3>Exercício 9</h3><br>
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1132344180?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin"
-        style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Exercício 09 - Lista 07 - Ambiente Atmosférico"></iframe></div>
-<script src="https://player.vimeo.com/api/player.js"></script>
-<p></p>
-<p></p>
-<h3>Exercício 10</h3><br>
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1132344206?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin"
-        style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Exercício 10 - Lista 07 - Ambiente Atmosférico"></iframe></div>
-<script src="https://player.vimeo.com/api/player.js"></script>
-<p></p>
+<p dir="ltr" style="text-align: left;">Baixe <a href="Lista 7 - resolução.pdf" target="_blank">a resolução da lista 7</a>.</p>
+<p dir="ltr" style="text-align: left;"><br></p>
+<h2>EXERCÍCIO 1</h2><br>
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1134323582?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Exercício 01 - Lista 07 CORRETA - Ambiente Atmosférico"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<br>
+<h2>EXERCÍCIO 2</h2><br>
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1134323658?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Exercício 02 - Lista 07 CORRETA - Ambiente Atmosférico"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<br>
+<h2>EXERCÍCIO 3</h2><br>
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1134323692?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Exercício 03 - Lista 07 CORRETA - Ambiente Atmosférico"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<br>
+<h2>EXERCÍCIO 4</h2><br>
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1134323724?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Exercício 04 - Lista 07 CORRETA - Ambiente Atmosférico"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<br>
+<h2>EXERCÍCIO 5</h2><br>
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1134323746?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Exercício 05 - Lista 07 CORRETA - Ambiente Atmosférico"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<br>
+<h2>EXERCÍCIO 6</h2><br>
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1134323769?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Exercício 06 - Lista 07 CORRETA - Ambiente Atmosférico"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<br>
+<h2>EXERCÍCIO 7</h2><br>
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1134323799?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Exercício 07 - Lista 07 CORRETA - Ambiente Atmosférico"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<br>
+<h2>EXERCÍCIO 8</h2><br>
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1134323838?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Exercício 08 - Lista 07 CORRETA - Ambiente Atmosférico"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<br>
+<h2>EXERCÍCIO 9</h2><br>
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1134323867?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Exercício 09 - Lista 07 CORRETA - Ambiente Atmosférico"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<br>
+<h2>EXERCÍCIO 10</h2><br>
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1134323895?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Exercício 10 - Lista 07 CORRETA - Ambiente Atmosférico"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<br>
+
 <p></p>
 
     <p><a href="logout.php">Sair</a></p>
