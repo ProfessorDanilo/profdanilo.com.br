@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simulador IRPF 2026 – Professor - Sustômetro</title>
+
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 800px;
+        margin: 40px auto;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      .box {
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        margin-top: 20px;
+      }
+
+      input,
+      button {
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+
+      button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .alerta {
+        color: #d9534f;
+        font-weight: bold;
+        font-size: 1.2em;
+        padding: 10px;
+        background: #fdf2f2;
+        border-radius: 4px;
+      }
+
+      .ok {
+        color: #5cb85c;
+        font-weight: bold;
+        font-size: 1.2em;
+      }
+
+      .info-small {
+        font-size: 0.85em;
+        color: #666;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Simulador de IRPF 2026 – Múltiplos Vínculos</h1>
+
+    <p>
+      Veja o impacto de trabalhar em várias escolas e ser isento na fonte, mas
+      ter imposto a pagar no ajuste anual.
+    </p>
+
+    <p>
+      É muito importante entender que isso não é uma assessoria na área
+      contábil, uma vez que o criador é um professor da área de extas apenas.
+      Isso é apenas um cálculo estimado que não leva em conta despezas médicas,
+      dependentes, pensão entre outras despezas que podem ser deduzidas no
+      Imposto sobre a Renda de Pessoas Físicas (IRPF).
+    </p>
+
+    <p>
+      É importante destacar também que todo e qualquer dado aqui compartilhado
+      não fica retido no site. Do ponto de vista técnico, todo o cálculo é feito
+      no front-end, isto é, no seu computador e não no servidor, e o código
+      fonte pode ser acessado pressionando "F11" do seu computador. Em
+      atualizações futuras, pretendo adicionar este conteúdo no GitHub para
+      acesso mais fácil por pessoas com menos afinidades com tais tecnologias.
+    </p>
+
+    <div class="box">
+      <label><strong>Em quantas escolas você trabalha?</strong></label
+      ><br />
+      <input type="number" id="qtd" min="1" max="40" value="1" />
+      <button type="button" onclick="gerarCampos()">Gerar Campos</button>
+    </div>
+
+    <div id="salarios_container" style="margin-top: 20px"></div>
+
+    <div id="btn_calcular" style="display: none">
+      <button type="button" onclick="calcular()">Calcular Imposto Anual</button>
+    </div>
+
+    <div class="box" id="resultado" style="display: none"></div>
+
+    <script>
+      // ==============================
+      // CONFIGURAÇÕES IRPF 2026
+      // ==============================
+
+      const tabelaMensal = [
+        { limite: 2228.8, aliquota: 0, deducao: 0 },
+        { limite: 2826.65, aliquota: 0.075, deducao: 182.16 },
+        { limite: 3751.05, aliquota: 0.15, deducao: 394.16 },
+        { limite: 4664.68, aliquota: 0.225, deducao: 675.49 },
+        { limite: Infinity, aliquota: 0.275, deducao: 908.73 },
+      ];
+
+      const tabelaAnual = [
+        { limite: 28467.2, aliquota: 0, deducao: 0 },
+        { limite: 33919.8, aliquota: 0.075, deducao: 2135.04 },
+        { limite: 45012.6, aliquota: 0.15, deducao: 4579.03 },
+        { limite: 55976.16, aliquota: 0.225, deducao: 8054.97 },
+        { limite: Infinity, aliquota: 0.275, deducao: 10853.78 },
+      ];
+
+      const DESCONTO_SIMPLIFICADO_MENSAL = 607.2;
+      const DESCONTO_SIMPLIFICADO_ANUAL_MAX = 17640.0;
+
+      // ==============================
+      // INTERFACE
+      // ==============================
+
+      function gerarCampos() {
+        const qtd = Number(document.getElementById('qtd').value);
+        const div = document.getElementById('salarios_container');
+
+        div.innerHTML = '<h3>Salários Mensais:</h3>';
+
+        for (let i = 0; i < qtd; i++) {
+          div.innerHTML += `
+      <div style="margin-bottom: 10px;">
+        <label>Escola ${i + 1}: R$ </label>
+        <input type="number" step="0.01" id="sal${i}" placeholder="Ex: 5000">
+      </div>
+    `;
+        }
+
+        document.getElementById('btn_calcular').style.display = 'block';
+      }
+
+      // ==============================
+      // FUNÇÕES DE CÁLCULO
+      // ==============================
+
+      function calcularIR(base, tabela) {
+        const faixa =
+          tabela.find(f => base <= f.limite) || tabela[tabela.length - 1];
+        return Math.max(0, base * faixa.aliquota - faixa.deducao);
+      }
+
+      function redutorMensal(rendaBruta) {
+        if (rendaBruta <= 5000) return 312.89;
+        if (rendaBruta <= 7350) {
+          return Math.max(0, 978.62 - 0.133145 * rendaBruta);
+        }
+        return 0;
+      }
+
+      // ==============================
+      // CÁLCULO PRINCIPAL
+      // ==============================
+
+      function calcular() {
+        const qtd = Number(document.getElementById('qtd').value);
+
+        let rendaMensalTotal = 0;
+        let irRetidoMensalTotal = 0;
+
+        for (let i = 0; i < qtd; i++) {
+          const sal = Number(document.getElementById(`sal${i}`).value || 0);
+          rendaMensalTotal += sal;
+
+          const baseMensal = Math.max(0, sal - DESCONTO_SIMPLIFICADO_MENSAL);
+          let irFonte = calcularIR(baseMensal, tabelaMensal);
+          irFonte = Math.max(0, irFonte - redutorMensal(sal));
+          irRetidoMensalTotal += irFonte;
+        }
+
+        const rendaAnualTotal = rendaMensalTotal * 12;
+        const totalRetidoAno = irRetidoMensalTotal * 12;
+
+        const descSimplificado = Math.min(
+          rendaAnualTotal * 0.2,
+          DESCONTO_SIMPLIFICADO_ANUAL_MAX
+        );
+
+        const baseAnual = Math.max(0, rendaAnualTotal - descSimplificado);
+
+        let impostoDevidoAnual = calcularIR(baseAnual, tabelaAnual);
+
+        // Redutor anual (modelo simplificado usado pelo autor)
+        const redutorAnualAplicado = redutorMensal(rendaMensalTotal) * 12;
+        impostoDevidoAnual = Math.max(
+          0,
+          impostoDevidoAnual - redutorAnualAplicado
+        );
+
+        const saldo = impostoDevidoAnual - totalRetidoAno;
+
+        const resDiv = document.getElementById('resultado');
+        resDiv.style.display = 'block';
+
+        resDiv.innerHTML = `
+    <h2>Resultado da Simulação</h2>
+
+    <p>Renda Bruta Total Anual:
+      <strong>R$ ${rendaAnualTotal.toFixed(2)}</strong>
+    </p>
+
+    <p>Desconto Simplificado na Declaração:
+      <strong>R$ ${descSimplificado.toFixed(2)}</strong>
+    </p>
+
+    <hr>
+
+    <p>Imposto Retido pelas Escolas (Ano):
+      R$ ${totalRetidoAno.toFixed(2)}
+    </p>
+
+    <p>Imposto Total Devido (Ajuste):
+      R$ ${impostoDevidoAnual.toFixed(2)}
+    </p>
+
+    <br>
+
+    ${
+      saldo > 0
+        ? `<div class="alerta">
+             ⚠️ IMPOSTO A PAGAR: R$ ${saldo.toFixed(2)}<br>
+             <span style="font-size: 0.7em; font-weight: normal;">
+             Isso ocorre porque as fontes não retiveram imposto individualmente,
+             mas sua renda somada é tributável.
+             </span>
+           </div>`
+        : `<div class="ok">
+             💰 RESTITUIÇÃO ESTIMADA: R$ ${Math.abs(saldo).toFixed(2)}
+           </div>`
+    }
+
+    <p class="info-small">
+      * Esta é uma estimativa baseada no Desconto Simplificado.
+      Gastos com saúde e educação não incluídos.
+    </p>
+  `;
+      }
+    </script>
+  </body>
+</html>
