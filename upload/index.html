@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Envio de Arquivo - Atividade 2</title>
+</head>
+<body>
+
+<h2>Envio da Atividade 2</h2>
+
+<form action="upload.php" method="post" enctype="multipart/form-data">
+    
+    Número do grupo:<br>
+    <input type="text" name="grupo" required><br><br>
+
+    Turma:<br>
+    <input type="text" name="turma" required><br><br>
+
+    Selecionar imagem (JPG ou PNG - máx 5MB):<br>
+    <input type="file" name="arquivo" accept=".jpg,.jpeg,.png" required><br><br>
+
+    <input type="submit" value="Enviar Arquivo">
+
+</form>
+
+</body>
+</html>
