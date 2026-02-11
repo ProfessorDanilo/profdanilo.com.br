@@ -1,6 +1,6 @@
 <?php
-$dir = __DIR__ . '/upload'; // pasta que será zipada
-$zipFileName = 'arquivos_enviados.zip';
+$dir = __DIR__ . '/arquivos'; // pasta que será zipada
+$zipFileName = 'arquivos.zip';
 
 // Cria objeto ZipArchive
 $zip = new ZipArchive();
