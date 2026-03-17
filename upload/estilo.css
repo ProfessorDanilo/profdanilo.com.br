@@ -1,0 +1,104 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f6f9;
+    margin:0;
+    padding:40px;
+}
+
+.container{
+    max-width:800px;
+    margin:auto;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.header h1{
+    color:#333;
+    font-weight:600;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card h2{
+    margin-top:0;
+    color:#2c7be5;
+}
+
+.card p{
+    line-height:1.6;
+    color:#444;
+}
+
+/* navegação */
+
+.page-nav{
+    display:flex;
+    justify-content:space-between;
+    margin-top:25px;
+}
+
+.nav-btn{
+    text-decoration:none;
+    padding:12px 20px;
+    background:#2c7be5;
+    color:white;
+    border-radius:6px;
+    font-weight:600;
+    transition:0.2s;
+}
+
+.nav-btn:hover{
+    background:#1a5fb4;
+    transform:translateY(-2px);
+}
+
+
+
+
+
+.table-container{
+    margin-top:25px;
+    overflow-x:auto;
+}
+
+.dados{
+    width:100%;
+    border-collapse:collapse;
+    font-size:15px;
+}
+
+.dados th{
+    background:#2c7be5;
+    color:white;
+    padding:10px;
+    text-align:center;
+}
+
+.dados td{
+    padding:8px 12px;
+    text-align:center;
+}
+
+/* linhas alternadas */
+
+.dados tbody tr:nth-child(even){
+    background:#f2f6fc;
+}
+
+.dados tbody tr:nth-child(odd){
+    background:#ffffff;
+}
+
+/* efeito ao passar o mouse */
+
+.dados tbody tr:hover{
+    background:#dbe8ff;
+}

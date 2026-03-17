@@ -18,23 +18,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $permitidos = ["jpg", "jpeg", "png"];
 
     if (!in_array($extensao, $permitidos)) {
-        die("Tipo de arquivo não permitido.");
+        echo "<script>
+            alert('Tipo de arquivo não permitido.');
+            window.history.back();
+        </script>";
+        exit;
     }
 
     if ($tamanho > $limite_tamanho) {
-        die("Arquivo muito grande. Máximo 5MB.");
+        echo "<script>
+            alert('Arquivo muito grande. Máximo 5MB.');
+            window.history.back();
+        </script>";
+        exit;
     }
 
     $novo_nome = date("Ymd_His") . "_" . $turma . "_" . $grupo . "." . $extensao;
 
     if (move_uploaded_file($tmp, $diretorio . $novo_nome)) {
-        echo "Arquivo enviado com sucesso!";
+        // Sucesso: popup + redirecionamento
+        echo "<script>
+            alert('Arquivo enviado com sucesso!');
+            window.location.href = 'parte3.html';
+        </script>";
     } else {
-        echo "Erro ao enviar arquivo.";
+        echo "<script>
+            alert('Erro ao enviar arquivo.');
+            window.history.back();
+        </script>";
     }
 
 } else {
-    echo "Acesso inválido.";
+    echo "<script>
+        alert('Acesso inválido.');
+        window.history.back();
+    </script>";
 }
 
 ?>
