@@ -105,24 +105,24 @@ if (disc === "d1" && lista === 3) {
     "https://www.youtube.com/embed/3VlLUXAZLDA",
     "https://www.youtube.com/embed/TRm6ZO7M59c",
     "https://www.youtube.com/embed/NSSvJNfzHOE",
-    "https://www.youtube.com/embed/odu8EsBldjw",//FALTANDO DOIS EXERCÍCIOS AQUI
+    "https://www.youtube.com/embed/odu8EsBldjw",
   ];
 }
 
 if (disc === "d1" && lista === 4) {
   videos = [
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
+    "https://youtu.be/f4Rl6ZxS7RU",
+    "https://youtu.be/rNRgiPNnaJw",
+    "https://youtu.be/H7NrcvKHC7I",
+    "https://youtu.be/vKKuzFusKGA",
+    "https://youtu.be/qalxBEyvXOw",
+    "https://youtu.be/BQ_KCfUPOjI",
+    "https://youtu.be/43TZj4NeCKo",
+    "https://youtu.be/5zy91MsMgh0",
+    "https://youtu.be/PklMgRF5z7s",
+    "https://youtu.be/jkC8Jxgu1Os",
+    "https://youtu.be/R01loT3WKF4",
+    "https://youtu.be/aKmSzzALsHo",
   ];
 }
 
