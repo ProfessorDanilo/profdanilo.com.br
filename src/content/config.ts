@@ -111,31 +111,33 @@ if (disc === "d1" && lista === 3) {
 
 if (disc === "d1" && lista === 4) {
   videos = [
-    "https://youtu.be/f4Rl6ZxS7RU",
-    "https://youtu.be/rNRgiPNnaJw",
-    "https://youtu.be/H7NrcvKHC7I",
-    "https://youtu.be/vKKuzFusKGA",
-    "https://youtu.be/qalxBEyvXOw",
-    "https://youtu.be/BQ_KCfUPOjI",
-    "https://youtu.be/43TZj4NeCKo",
-    "https://youtu.be/5zy91MsMgh0",
-    "https://youtu.be/PklMgRF5z7s",
-    "https://youtu.be/jkC8Jxgu1Os",
-    "https://youtu.be/R01loT3WKF4",
-    "https://youtu.be/aKmSzzALsHo",
+    "https://www.youtube.com/embed/f4Rl6ZxS7RU",
+    "https://www.youtube.com/embed/rNRgiPNnaJw",
+    "https://www.youtube.com/embed/H7NrcvKHC7I",
+    "https://www.youtube.com/embed/vKKuzFusKGA",
+    "https://www.youtube.com/embed/qalxBEyvXOw",
+    "https://www.youtube.com/embed/BQ_KCfUPOjI",
+    "https://www.youtube.com/embed/43TZj4NeCKo",
+    "https://www.youtube.com/embed/5zy91MsMgh0",
+    "https://www.youtube.com/embed/PklMgRF5z7s",
+    "https://www.youtube.com/embed/jkC8Jxgu1Os",
+    "https://www.youtube.com/embed/R01loT3WKF4",
+    "https://www.youtube.com/embed/aKmSzzALsHo",
   ];
 }
 
 if (disc === "d1" && lista === 5) {
   videos = [
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
+    "https://www.youtube.com/embed/8r0GjCDYnUk",
+    "https://www.youtube.com/embed/MkKY8rg50HY",
+    "https://www.youtube.com/embed/e3AunhVn_4w",
+    "https://www.youtube.com/embed/aWiIJCayDSQ",
+    "https://www.youtube.com/embed/367vRF7QGCI",
+    "https://www.youtube.com/embed/MW_nGdo9Qps",
+    "https://www.youtube.com/embed/GTqfEuL7mTI",
+    "https://www.youtube.com/embed/G7HahOvS364",
+    "https://www.youtube.com/embed/eOc7JI06sfA",
+    "https://www.youtube.com/embed/3y9j5gTq-rk",
   ];
 }
 
